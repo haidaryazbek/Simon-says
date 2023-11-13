@@ -17,7 +17,7 @@ let on=false
 let level=1
 let flash_number=0
 
-body.addEventListener("click",function(){   // start or restart the game
+body.addEventListener("click",function(){    // start or restart the game
     if(!on){
         on=true
         let player_turn=false
