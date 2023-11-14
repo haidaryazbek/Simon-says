@@ -16,20 +16,29 @@ let main_seq
 let on=false
 let level
 let flash_number
+let player_turn
 
-document.addEventListener("click",function(){    // start or restart the game
+body.addEventListener("keypress",function(){    // start or restart the game
+    start_game();
+});
+
+body.addEventListener("click",function(){ 
+    start_game();
+});
+
+function start_game(){
     if(!on){
         on=true
-        let player_turn=false
+        player_turn=false
         level_title.textContent="Level 1"
         level=1
         main_seq=[]
-        for(i=0;i<50;i++){
+        for(i=0;i<3;i++){
             main_seq.push(Math.ceil(Math.random()*4))
         }
         setTimeout(gameturn,1000)
     }
-});
+}
 
 function gameturn(){    // flash the next color in the sequence
     flash_number=0;
@@ -167,8 +176,8 @@ function next_level(){      //switch to next level
     flash_number=0;
     level++;
     if (level>3){       // win case
-        level_title.textContent="You Won! Press Any Key To Restart";
         setTimeout(function (){
+            level_title.textContent="You Won! Press Any Key To Restart";
             win_audio.play();
             player_turn=false;
         },300);
