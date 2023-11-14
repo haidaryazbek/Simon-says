@@ -12,12 +12,12 @@ const blue_audio = new Audio('./sounds/blue.mp3');
 const wrong_audio = new Audio('./sounds/wrong.mp3');
 const win_audio = new Audio('./sounds/win.mp3')
 
-let main_seq=[]
+let main_seq
 let on=false
-let level=1
-let flash_number=0
+let level
+let flash_number
 
-body.addEventListener("click",function(){    // start or restart the game
+document.addEventListener("click",function(){    // start or restart the game
     if(!on){
         on=true
         let player_turn=false
